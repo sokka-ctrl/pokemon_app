@@ -27,15 +27,15 @@ class _PokedexScreenState extends State<PokedexScreen> {
 @override
   void initState() {
   list = [
-    PokemonModel(name: 'Bulbasaur', image: bulbaUrl, color: Colors.green, number: '#001', statisticks: 10),
-    PokemonModel(name: 'Charmander', image: charmanderUrl, color: Colors.orange, number: '#004', statisticks: 6),
-    PokemonModel(name: 'Squirtle', image: squrirtleUrl, color: Colors.lightBlue, number: '#007', statisticks: 1),
-    PokemonModel(name: 'Butterfree', image: butterfreeUrl, color: Colors.lightGreen, number: '#012', statisticks: 12),
-    PokemonModel(name: 'Pikachu', image: pikachuUrl, color: Colors.yellow, number: '#025', statisticks: 12),
-    PokemonModel(name: 'Gastly', image: gastlyUrl, color: Colors.deepPurpleAccent, number: '#092', statisticks: 2),
-    PokemonModel(name: 'Ditto', image: dittoUrl, color: Color.fromARGB(100, 197, 188, 149), number: '#132', statisticks: 12),
-    PokemonModel(name: 'Hypno', image: hypnoUrl, color: Colors.yellowAccent, number: '#666', statisticks: 2),
-    PokemonModel(name: 'Mew', image: mewUrl, color: Colors.pinkAccent, number: '#152', statisticks: 4)
+    PokemonModel(name: 'Bulbasaur', image: bulbaUrl, color: Colors.green, number: '#001', stat_hp: 045, stat_atk: 049, stat_def: 049, stat_satk: 065, stat_sdef: 065, stat_spd: 045, skills: PokemonSkills(skilllist: ['12', '12'], colorskill: [Colors.green])),
+    PokemonModel(name: 'Charmander', image: charmanderUrl, color: Colors.orange, number: '#004',  stat_hp: 039, stat_atk: 052, stat_def: 043, stat_satk: 060, stat_sdef: 050, stat_spd: 065 , skills: PokemonSkills(skilllist: ['fire'], colorskill: [Colors.red])),
+    PokemonModel(name: 'Squirtle', image: squrirtleUrl, color: Colors.lightBlue, number: '#007', stat_hp: 044, stat_atk: 048, stat_def: 065, stat_satk: 050, stat_sdef: 064, stat_spd: 043, skills: PokemonSkills(skilllist: ['water'], colorskill: [Colors.blue])),
+    PokemonModel(name: 'Butterfree', image: butterfreeUrl, color: Colors.lightGreen, number: '#012',  stat_hp: 060, stat_atk: 045, stat_def: 050, stat_satk: 090, stat_sdef: 080, stat_spd: 070, skills: PokemonSkills(skilllist: ['bug', 'flying'], colorskill: [Colors.lightGreen, Colors.blueAccent])),
+    PokemonModel(name: 'Pikachu', image: pikachuUrl, color: Colors.yellow, number: '#025',  stat_hp: 035, stat_atk: 055, stat_def: 040, stat_satk: 050, stat_sdef: 050, stat_spd: 090, skills: PokemonSkills(skilllist: ['electric'], colorskill: [Colors.yellowAccent])),
+    PokemonModel(name: 'Gastly', image: gastlyUrl, color: Colors.deepPurpleAccent, number: '#092',   stat_hp: 030, stat_atk: 035, stat_def: 030, stat_satk: 0100, stat_sdef: 035, stat_spd: 080, skills: PokemonSkills(skilllist: ['ghost', 'poison'], colorskill: [Colors.deepPurpleAccent, Color.fromARGB(100, 123, 66, 145)])),
+    PokemonModel(name: 'Ditto', image: dittoUrl, color: Color.fromARGB(255, 123, 66, 145), number: '#132',  stat_hp: 048, stat_atk: 048, stat_def: 048, stat_satk: 048, stat_sdef: 048, stat_spd: 048, skills: PokemonSkills(skilllist: ['normal'], colorskill: [Colors.grey])),
+    PokemonModel(name: 'Hypno', image: hypnoUrl, color: Colors.yellowAccent, number: '#666',  stat_hp: 085, stat_atk: 073, stat_def: 070, stat_satk: 073, stat_sdef: 0115, stat_spd: 067, skills: PokemonSkills(skilllist: ['physic'], colorskill: [Colors.pinkAccent])),
+    PokemonModel(name: 'Mew', image: mewUrl, color: Colors.pinkAccent, number: '#152',   stat_hp: 100, stat_atk: 100, stat_def: 100, stat_satk: 100, stat_sdef: 100, stat_spd: 100, skills: PokemonSkills(skilllist: ['physic'], colorskill: [Colors.pinkAccent]))
   ];
     super.initState();
   }
@@ -89,7 +89,21 @@ class PokemonModel{
   final String image;
   final Color color;
   final String number;
-  final double statisticks;
+  final int stat_atk;
+  final int stat_def;
+  final int stat_satk;
+  final int stat_sdef;
+  final int stat_spd;
+  final int stat_hp;
+  final PokemonSkills skills;
 
-  PokemonModel({required this.name, required this.image, required this.color, required this.number, required this.statisticks});
+
+  PokemonModel({required this.name, required this.image, required this.color, required this.number, required this.stat_atk, required this.stat_def, required this.stat_satk, required this.stat_sdef, required this.stat_spd, required this.stat_hp, required this.skills});
+}
+
+class PokemonSkills{
+  final List<String> skilllist;
+  final List<Color> colorskill;
+
+  PokemonSkills({required this.skilllist, required this.colorskill});
 }
